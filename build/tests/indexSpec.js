@@ -65,7 +65,6 @@ describe('image processing testing', function () {
                     case 1:
                         response = _a.sent();
                         expect(response.status).toBe(200);
-                        console.log(response);
                         return [2 /*return*/];
                 }
             });
