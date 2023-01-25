@@ -42,39 +42,33 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.image = void 0;
 var fs_1 = __importDefault(require("fs"));
 var sharp_1 = __importDefault(require("sharp"));
-var image = /** @class */ (function () {
-    function image() {
-    }
-    image.process = function (req, res) {
-        return __awaiter(this, void 0, void 0, function () {
-            var path, error_1;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        path = 'D:/Projects/BackEnd Project image API/API/';
-                        if (!fs_1.default.existsSync(path + 'thumb/'))
-                            fs_1.default.mkdirSync(path + 'thumb/');
-                        _a.label = 1;
-                    case 1:
-                        _a.trys.push([1, 3, , 4]);
-                        return [4 /*yield*/, (0, sharp_1.default)(path + 'images/' + req.query.imageName)
-                                .resize({
-                                width: Number(req.query.width),
-                                height: Number(req.query.height)
-                            })
-                                .toFile(path + 'thumb/' + req.query.imageName + '-' + req.query.width + '-' + req.query.height + '.jpg')];
-                    case 2:
-                        _a.sent();
-                        return [3 /*break*/, 4];
-                    case 3:
-                        error_1 = _a.sent();
-                        console.log(error_1);
-                        return [3 /*break*/, 4];
-                    case 4: return [2 /*return*/, res.status(200).sendFile(path + 'thumb/' + req.query.imageName + '-' + req.query.width + '-' + req.query.height + '.jpg')];
-                }
-            });
+exports.image = {
+    process: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+        var path, error_1;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    path = 'D:/Projects/BackEnd Project image API/API/';
+                    if (!fs_1.default.existsSync(path + 'thumb/'))
+                        fs_1.default.mkdirSync(path + 'thumb/');
+                    _a.label = 1;
+                case 1:
+                    _a.trys.push([1, 3, , 4]);
+                    return [4 /*yield*/, (0, sharp_1.default)(path + 'images/' + req.query.imageName)
+                            .resize({
+                            width: Number(req.query.width),
+                            height: Number(req.query.height)
+                        })
+                            .toFile(path + 'thumb/' + req.query.imageName + '-' + req.query.width + '-' + req.query.height + '.jpg')];
+                case 2:
+                    _a.sent();
+                    return [3 /*break*/, 4];
+                case 3:
+                    error_1 = _a.sent();
+                    console.log(error_1);
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/, res.status(200).sendFile(path + 'thumb/' + req.query.imageName + '-' + req.query.width + '-' + req.query.height + '.jpg')];
+            }
         });
-    };
-    return image;
-}());
-exports.image = image;
+    }); }
+};
